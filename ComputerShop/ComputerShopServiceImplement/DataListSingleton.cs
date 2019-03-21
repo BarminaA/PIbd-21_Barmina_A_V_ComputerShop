@@ -17,6 +17,10 @@ namespace ComputerShopServiceImplement
 
         public List<ItemPart> ItemParts { get; set; }
 
+        public List<Storage> Storages { get; set; }
+
+        public List<StoragePart> StorageParts { get; set; }
+
         private DataListSingleton()
         {
             Customers = new List<Customer>();
@@ -24,6 +28,8 @@ namespace ComputerShopServiceImplement
             Bookings = new List<Booking>();
             Items = new List<Item>();
             ItemParts = new List<ItemPart>();
+            Storages = new List<Storage>();
+            StorageParts = new List<StoragePart>();
         }
 
         public static DataListSingleton GetInstance()
