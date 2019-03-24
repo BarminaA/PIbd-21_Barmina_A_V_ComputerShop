@@ -19,5 +19,7 @@ namespace ComputerShopServiceDAL.Interfaces
         void FinishBooking(BookingBindingModel model);
 
         void PayBooking(BookingBindingModel model);
+
+        void PutPartOnStorage(StoragePartBindingModel model);
     }
 }
