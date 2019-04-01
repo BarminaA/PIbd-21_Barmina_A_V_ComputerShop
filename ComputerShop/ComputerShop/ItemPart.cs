@@ -17,5 +17,7 @@ namespace ComputerShop
         public string PartName { get; set; }
 
         public int Count { get; set; }
+
+        public virtual Part Part { get; set; }
     }
 }
