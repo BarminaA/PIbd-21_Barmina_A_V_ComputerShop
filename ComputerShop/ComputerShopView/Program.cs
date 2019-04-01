@@ -1,9 +1,9 @@
-﻿using ComputerShopServiceDAL.Interfaces;
+﻿using ComputerShopDataBase;
+using ComputerShopDataBase.Implementation;
+using ComputerShopServiceDAL.Interfaces;
 using ComputerShopServiceImplement.Implementations;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Data.Entity;
 using System.Windows.Forms;
 using Unity;
 using Unity.Lifetime;
@@ -27,11 +27,12 @@ namespace ComputerShopView
         public static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
-            currentContainer.RegisterType<ICustomerService, CustomerServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IPartService, PartServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IItemService, ItemServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IMainService, MainServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IStorageService, StorageServiceList>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<DbContext, ComputerDbContext>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<ICustomerService, CustomerServiceDB>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IPartService, PartServiceDB>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IItemService, ItemServiceDB>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IMainService, MainServiceDB>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IStorageService, StorageServiceDB>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }
