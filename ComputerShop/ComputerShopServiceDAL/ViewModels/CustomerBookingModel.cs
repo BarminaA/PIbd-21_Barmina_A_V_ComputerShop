@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComputerShop
+namespace ComputerShopServiceDAL.ViewModels
 {
     public class CustomerBookingModel
     {

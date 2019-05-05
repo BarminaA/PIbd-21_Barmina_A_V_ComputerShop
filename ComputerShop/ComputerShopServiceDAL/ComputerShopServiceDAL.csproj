@@ -56,6 +56,7 @@
     <Compile Include="Interfaces\IStorageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
+    <Compile Include="ViewModels\CustomerBookingModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\ItemPartViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />

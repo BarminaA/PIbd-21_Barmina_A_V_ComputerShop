@@ -52,7 +52,6 @@
     <Compile Include="Booking.cs" />
     <Compile Include="BookingStatus.cs" />
     <Compile Include="Customer.cs" />
-    <Compile Include="CustomerBookingModel.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="ItemPart.cs" />
     <Compile Include="Part.cs" />

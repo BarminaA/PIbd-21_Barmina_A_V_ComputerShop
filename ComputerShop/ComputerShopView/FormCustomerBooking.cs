@@ -29,18 +29,18 @@ namespace ComputerShopView
             }
             try
             {
-                ReportParameter parameter = new ReportParameter("ReportParameterPeriod", "c " + dateTimePickerFrom.Value.ToShortDateString() + " по " + dateTimePickerTo.Value.ToShortDateString());
-                reportViewer.LocalReport.SetParameters(parameter);
+            //    ReportParameter parameter = new ReportParameter("ReportParameterPeriod", "c " + dateTimePickerFrom.Value.ToShortDateString() + " по " + dateTimePickerTo.Value.ToShortDateString());
+            //    reportViewer.LocalReport.SetParameters(parameter);
 
-                var dataSource = service.GetCustomerBooking(RecordBindingModel
-                {
-                    DateFrom = dateTimePickerFrom.Value,
-                    DateTo = dateTimePickerTo.Value
-                });
-                ReportDataSource source = new ReportDataSource("DataSetOrders", dataSource);
-                reportViewer.LocalReport.DataSources.Add(source);
-                reportViewer.RefreshReport();
-            }
+            //    var dataSource = service.GetCustomerBooking(RecordBindingModel
+            //    {
+            //        DateFrom = dateTimePickerFrom.Value,
+            //        DateTo = dateTimePickerTo.Value
+            //    });
+            //    ReportDataSource source = new ReportDataSource("DataSetOrders", dataSource);
+            //    reportViewer.LocalReport.DataSources.Add(source);
+            //    reportViewer.RefreshReport();
+            //}
             catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
