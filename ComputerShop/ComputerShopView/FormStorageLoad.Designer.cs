@@ -28,41 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.buttonSaveToExel = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Storage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Part = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Item3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonSaveToExel = new System.Windows.Forms.Button();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView
-            // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Storage,
-            this.Part,
-            this.Item3});
-            this.dataGridView.Location = new System.Drawing.Point(13, 45);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(430, 388);
-            this.dataGridView.TabIndex = 1;
-            // 
-            // Storage
-            // 
-            this.Storage.HeaderText = "Склад";
-            this.Storage.Name = "Storage";
-            // 
-            // Part
-            // 
-            this.Part.HeaderText = "Компонент";
-            this.Part.Name = "Part";
-            // 
-            // Item3
-            // 
-            this.Item3.HeaderText = "Количество";
-            this.Item3.Name = "Item3";
             // 
             // buttonSaveToExel
             // 
@@ -74,13 +46,41 @@
             this.buttonSaveToExel.UseVisualStyleBackColor = true;
             this.buttonSaveToExel.Click += new System.EventHandler(this.buttonSaveToExel_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Storage,
+            this.Part,
+            this.Count});
+            this.dataGridView.Location = new System.Drawing.Point(13, 46);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(439, 150);
+            this.dataGridView.TabIndex = 3;
+            // 
+            // Storage
+            // 
+            this.Storage.HeaderText = "Склад";
+            this.Storage.Name = "Storage";
+            // 
+            // Part
+            // 
+            this.Part.HeaderText = "Компонент";
+            this.Part.Name = "Part";
+            // 
+            // Count
+            // 
+            this.Count.HeaderText = "Количество";
+            this.Count.Name = "Count";
+            // 
             // FormStorageLoad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 449);
-            this.Controls.Add(this.buttonSaveToExel);
             this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.buttonSaveToExel);
             this.Name = "FormStorageLoad";
             this.Text = "Загрузка складов";
             this.Load += new System.EventHandler(this.FormStorageLoad_Load);
@@ -90,10 +90,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button buttonSaveToExel;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Storage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Part;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Item3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count;
     }
 }

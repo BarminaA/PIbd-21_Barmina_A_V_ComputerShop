@@ -3,7 +3,6 @@ using ComputerShopServiceDAL.Interfaces;
 using System;
 using System.Windows.Forms;
 using Unity;
-using Unity.Attributes;
 
 namespace ComputerShopView
 {
@@ -33,7 +32,7 @@ namespace ComputerShopView
                         dataGridView.Rows.Add(new object[] { elem.StorageName, "", "" });
                         foreach (var listElem in elem.Components)
                         {
-                            dataGridView.Rows.Add(new object[] { "", listElem.Item1, listElem.Item2 });
+                            dataGridView.Rows.Add(new object[] { "", Part, Count });
                         }
                         dataGridView.Rows.Add(new object[] { "Итого", "", elem.TotalCount });
                         dataGridView.Rows.Add(new object[] { }); } } } catch (Exception ex)

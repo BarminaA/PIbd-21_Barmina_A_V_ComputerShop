@@ -1,7 +1,13 @@
 ﻿using ComputerShopServiceDAL.BindingModels;
 using ComputerShopServiceDAL.Interfaces;
-using Microsoft.Reporting.WinForms;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 
@@ -10,6 +16,7 @@ namespace ComputerShopView
     public partial class FormCustomerBooking : Form
     {
         [Dependency]
+
         public new IUnityContainer Container { get; set; }
 
         private readonly IRecordService service;
@@ -20,48 +27,43 @@ namespace ComputerShopView
             this.service = service;
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonMake_Click(object sender, EventArgs e)
         {
-            if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
-            {
-                MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date) { MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
             try
             {
-            //    ReportParameter parameter = new ReportParameter("ReportParameterPeriod", "c " + dateTimePickerFrom.Value.ToShortDateString() + " по " + dateTimePickerTo.Value.ToShortDateString());
-            //    reportViewer.LocalReport.SetParameters(parameter);
-
-            //    var dataSource = service.GetCustomerBooking(RecordBindingModel
-            //    {
-            //        DateFrom = dateTimePickerFrom.Value,
-            //        DateTo = dateTimePickerTo.Value
-            //    });
-            //    ReportDataSource source = new ReportDataSource("DataSetOrders", dataSource);
-            //    reportViewer.LocalReport.DataSources.Add(source);
-            //    reportViewer.RefreshReport();
-            //}
-            catch (Exception ex) { MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+              /*  ReportParameter parameter = new ReportParameter("ReportParameterPeriod", "c " + dateTimePickerFrom.Value.ToShortDateString() + " по " + dateTimePickerTo.Value.ToShortDateString());
+                reportViewer.LocalReport.SetParameters(parameter);
+                var dataSource = service.GetClientOrders(new ReportBindingModel
+                {
+                    DateFrom = dateTimePickerFrom.Value,
+                    DateTo = dateTimePickerTo.Value
+                });
+                ReportDataSource source = new ReportDataSource("DataSetOrders", dataSource);
+                reportViewer.LocalReport.DataSources.Add(source);
+                                reportViewer.RefreshReport();
+            */}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void buttonPdf_Click(object sender, EventArgs e)
+        private void buttonPDF_Click(object sender, EventArgs e)
         {
             if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
             {
                 MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            SaveFileDialog sfd = new SaveFileDialog { Filter = "pdf|*.pdf" };
-            if (sfd.ShowDialog() == DialogResult.OK)
+            SaveFileDialog sfd = new SaveFileDialog { Filter = "pdf|*.pdf" }; if (sfd.ShowDialog() == DialogResult.OK)
             {
-                try
+                try { service.SaveCustomerBooking(new RecordBindingModel
                 {
-                    service.SaveCustomerBooking(new RecordBindingModel
-                    {
-                        FileName = sfd.FileName,
-                        DateFrom = dateTimePickerFrom.Value,
-                        DateTo = dateTimePickerTo.Value
-                    });
+                    FileName = sfd.FileName,
+                    DateFrom = dateTimePickerFrom.Value,
+                    DateTo = dateTimePickerTo.Value
+                });
                     MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (Exception ex)
@@ -70,6 +72,11 @@ namespace ComputerShopView
                 }
             }
         }
+
+        private void FormCustomerBooking_Load(object sender, EventArgs e)
+        {
+
+            this.reportViewer1.RefreshReport();
+        }
     }
 }
-

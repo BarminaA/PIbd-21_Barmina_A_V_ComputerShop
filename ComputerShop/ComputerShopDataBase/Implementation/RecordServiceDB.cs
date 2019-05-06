@@ -1,5 +1,4 @@
-﻿using ComputerShop;
-using ComputerShopServiceDAL.BindingModels;
+﻿using ComputerShopServiceDAL.BindingModels;
 using ComputerShopServiceDAL.Interfaces;
 using ComputerShopServiceDAL.ViewModels;
 using iTextSharp.text;
@@ -12,6 +11,10 @@ using System.Data.Entity;
 using System.Data.Entity.SqlServer;
 using System.IO;
 using System.Linq;
+
+
+
+
 
 namespace ComputerShopDataBase.Implementation
 {
