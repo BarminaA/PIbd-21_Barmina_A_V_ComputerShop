@@ -22,6 +22,7 @@ namespace ComputerShopView
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(container.Resolve<FormMain>());
+
         }
 
         public static IUnityContainer BuildUnityContainer()
