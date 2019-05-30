@@ -167,7 +167,7 @@ namespace ComputerShopView
 
         private void загруженностьСкладовToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormStorage>();
+            var form = Container.Resolve<FormStorageLoad>();
             form.ShowDialog();
         }
 
