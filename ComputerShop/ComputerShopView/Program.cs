@@ -22,6 +22,7 @@ namespace ComputerShopView
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(container.Resolve<FormMain>());
+
         }
 
         public static IUnityContainer BuildUnityContainer()
@@ -33,6 +34,7 @@ namespace ComputerShopView
             currentContainer.RegisterType<IItemService, ItemServiceDB>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IMainService, MainServiceDB>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IStorageService, StorageServiceDB>(new HierarchicalLifetimeManager());
+            currentContainer.RegisterType<IRecordService, RecordServiceDB>(new HierarchicalLifetimeManager());
             return currentContainer;
         }
     }

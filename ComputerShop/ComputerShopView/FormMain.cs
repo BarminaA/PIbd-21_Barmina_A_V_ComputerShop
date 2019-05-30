@@ -20,11 +20,13 @@ namespace ComputerShopView
         public new IUnityContainer Container { get; set; }
 
         private readonly IMainService service;
+        private readonly IRecordService recservice;
 
-        public FormMain(IMainService service)
+        public FormMain(IMainService service, IRecordService recservice)
         {
             InitializeComponent();
             this.service = service;
+            this.recservice = recservice;
         }
 
         private void LoadData()
@@ -144,6 +146,35 @@ namespace ComputerShopView
         private void buttonRef_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void ценаИзделияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog { Filter = "doc|*.doc|docx|*.docx" };
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    recservice.SaveItemPrice(new RecordBindingModel { FileName = sfd.FileName });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загруженностьСкладовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormStorageLoad>();
+            form.ShowDialog();
+        }
+
+        private void заказыКлиентовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormCustomerBooking>();
+            form.ShowDialog();
         }
     }
 }
